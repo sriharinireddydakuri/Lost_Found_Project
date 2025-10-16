@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'master', url: 'https://github.com/sriharinireddydakuri/Capstone-Project.git'
+                git branch: 'main', url: 'https://github.com/sriharinireddydakuri/Capstone-Project.git'
             }
         }
  
