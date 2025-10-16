@@ -1,5 +1,4 @@
 // Modal Utils
-window.onload = () => {
 function openModal(id) {
   document.getElementById(id).style.display = 'flex';
 }
@@ -11,9 +10,15 @@ function switchModal() {
   openModal('registerModal');
 }
 window.onclick = function(e) {
-  ['reportModal', 'loginModal', 'registerModal'].forEach(id => {
+  [ 'reportModal'].forEach(id => {
     const modal = document.getElementById(id);
-    if (e.target === modal) modal.style.display = "none";
+    if (modal  === modal) modal.style.display = "none";
+  });
+}
+window.onclick = function(e) {
+  ['loginModal', 'registerModal'].forEach(id => {
+    const modal = document.getElementById(id);
+    if (e.target == modal) modal.style.display = "none";
   });
 };
 
@@ -127,10 +132,12 @@ function logoutUser() {
 }
 
 // Restore session on page load
-
+window.onload = () => {
   const username = localStorage.getItem('currentUser');
   if (username) setUserLoggedIn(username);
   loadLostItems();
+};
+
 
 // Variables for container and modal
 const modal = document.getElementById("reportModal");
@@ -226,5 +233,4 @@ function loadLostItems() {
     }).catch(() => {
       showToast("Failed to load lost items.", "#f44336");
     });
-}
 }
