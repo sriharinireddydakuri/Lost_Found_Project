@@ -1,0 +1,12 @@
+# Ignore Terraform directories and files
+/node_modules/
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Optional: Ignore IDE and OS-specific files
+*.log
+*.DS_Store
+*.idea/
+.vscode/

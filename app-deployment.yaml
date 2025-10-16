@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lost-and-found
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: lost-and-found
+  template:
+    metadata:
+      labels:
+        app: lost-and-found
+    spec:
+      containers:
+      - name: lost-and-found
+        image:  harinireddy765/lostfound
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MONGODB_URI
+          value: "mongodb://mongodb:27017/lostandfound"
+        - name: PORT
+          value: "5000"
+        - name: HOST
+          value: "0.0.0.0"
+        - name: NODE_ENV
+          value: "production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lost-and-found-service
+spec:
+  selector:
+    app: lost-and-found
+  ports:
+  - port: 3000
+    targetPort: 3000
+  type: LoadBalancer
