@@ -22,7 +22,10 @@ pipeline {
  
         stage('Build Docker Image') {
             steps {
-                sh "docker build -t ${DOCKER_HUB_REPO}:${IMAGE_TAG} ."
+                // sh "docker build -t ${DOCKER_HUB_REPO}:${IMAGE_TAG} ."
+                script{
+                    docker.build("${DOCKER_IMAGE}")
+                }
             }
         }
  
