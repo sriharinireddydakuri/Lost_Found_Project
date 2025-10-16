@@ -9,7 +9,7 @@ pipeline {
  
     environment {
         DOCKER_IMAGE = "lostfound:${IMAGE_TAG}"
-        DOCKER_HUB_REPO = "harinireddy765/lostfound:latest"
+        DOCKER_HUB_REPO = "harinireddy765/lostfound"
         ECR_REPO = "636768524979.dkr.ecr.ap-south-1.amazonaws.com/lost-found"
     }
  
