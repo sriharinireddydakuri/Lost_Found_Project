@@ -127,11 +127,10 @@ function logoutUser() {
 }
 
 // Restore session on page load
-window.onload = () => {
+
   const username = localStorage.getItem('currentUser');
   if (username) setUserLoggedIn(username);
   loadLostItems();
-};
 
 // Variables for container and modal
 const modal = document.getElementById("reportModal");
