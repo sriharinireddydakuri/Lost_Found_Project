@@ -72,8 +72,8 @@ pipeline {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS-Credentials']]) {
                 script {
                     sh "aws eks update-kubeconfig --name lost-found-cluster --region ap-south-1"
-                    sh "kubectl apply -f app-deployment.yml"
-                    sh "kubectl apply -f mongo-deployment.yml"
+                    sh "kubectl apply -f app-deployment.yaml"
+                    sh "kubectl apply -f mongo-deployment.yaml"
                 }
             }
         }
